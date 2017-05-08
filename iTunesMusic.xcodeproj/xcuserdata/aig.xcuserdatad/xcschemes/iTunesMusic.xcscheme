@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "198B8E771EBF7FD70085351E"
+               BuildableName = "iTunesMusic.app"
+               BlueprintName = "iTunesMusic"
+               ReferencedContainer = "container:iTunesMusic.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "198B8E901EBF7FD70085351E"
+               BuildableName = "iTunesMusicTests.xctest"
+               BlueprintName = "iTunesMusicTests"
+               ReferencedContainer = "container:iTunesMusic.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "198B8E9B1EBF7FD80085351E"
+               BuildableName = "iTunesMusicUITests.xctest"
+               BlueprintName = "iTunesMusicUITests"
+               ReferencedContainer = "container:iTunesMusic.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "198B8E771EBF7FD70085351E"
+            BuildableName = "iTunesMusic.app"
+            BlueprintName = "iTunesMusic"
+            ReferencedContainer = "container:iTunesMusic.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "198B8E771EBF7FD70085351E"
+            BuildableName = "iTunesMusic.app"
+            BlueprintName = "iTunesMusic"
+            ReferencedContainer = "container:iTunesMusic.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "198B8E771EBF7FD70085351E"
+            BuildableName = "iTunesMusic.app"
+            BlueprintName = "iTunesMusic"
+            ReferencedContainer = "container:iTunesMusic.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

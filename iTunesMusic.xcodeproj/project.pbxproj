@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */; };
 		198B8E7D1EBF7FD70085351E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7C1EBF7FD70085351E /* main.m */; };
 		198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7F1EBF7FD70085351E /* AppDelegate.m */; };
-		198B8E831EBF7FD70085351E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E821EBF7FD70085351E /* ViewController.m */; };
-		198B8E861EBF7FD70085351E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198B8E841EBF7FD70085351E /* Main.storyboard */; };
 		198B8E881EBF7FD70085351E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198B8E871EBF7FD70085351E /* Assets.xcassets */; };
 		198B8E8B1EBF7FD70085351E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198B8E891EBF7FD70085351E /* LaunchScreen.storyboard */; };
 		198B8E961EBF7FD70085351E /* iTunesMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E951EBF7FD70085351E /* iTunesMusicTests.m */; };
 		198B8EA11EBF7FD80085351E /* iTunesMusicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EA01EBF7FD80085351E /* iTunesMusicUITests.m */; };
+		198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */; };
+		198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB61EBF83A80085351E /* AVGTrackCell.m */; };
+		198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC21EC0CFD80085351E /* AVGTrackService.m */; };
+		198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC51EC0D05B0085351E /* AVGTrackList.m */; };
+		198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC81EC0D0770085351E /* AVGTrack.m */; };
+		198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		190D4A2B1EC1086D008C6D1E /* AVGTrackThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackThumbView.h; sourceTree = "<group>"; };
+		190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackThumbView.m; sourceTree = "<group>"; };
 		198B8E781EBF7FD70085351E /* iTunesMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198B8E7C1EBF7FD70085351E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		198B8E7E1EBF7FD70085351E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		198B8E7F1EBF7FD70085351E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		198B8E811EBF7FD70085351E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		198B8E821EBF7FD70085351E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		198B8E851EBF7FD70085351E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		198B8E871EBF7FD70085351E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		198B8E8A1EBF7FD70085351E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		198B8E8C1EBF7FD70085351E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +55,19 @@
 		198B8E9C1EBF7FD80085351E /* iTunesMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198B8EA01EBF7FD80085351E /* iTunesMusicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesMusicUITests.m; sourceTree = "<group>"; };
 		198B8EA21EBF7FD80085351E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		198B8EB11EBF80AA0085351E /* AVGTrackTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackTVC.h; sourceTree = "<group>"; };
+		198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackTVC.m; sourceTree = "<group>"; };
+		198B8EB51EBF83A80085351E /* AVGTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackCell.h; sourceTree = "<group>"; };
+		198B8EB61EBF83A80085351E /* AVGTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackCell.m; sourceTree = "<group>"; };
+		198B8EB91EBF84090085351E /* AVGServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGServerManager.h; sourceTree = "<group>"; };
+		198B8EC11EC0CFD80085351E /* AVGTrackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackService.h; sourceTree = "<group>"; };
+		198B8EC21EC0CFD80085351E /* AVGTrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackService.m; sourceTree = "<group>"; };
+		198B8EC41EC0D05B0085351E /* AVGTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackList.h; sourceTree = "<group>"; };
+		198B8EC51EC0D05B0085351E /* AVGTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackList.m; sourceTree = "<group>"; };
+		198B8EC71EC0D0770085351E /* AVGTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrack.h; sourceTree = "<group>"; };
+		198B8EC81EC0D0770085351E /* AVGTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrack.m; sourceTree = "<group>"; };
+		198B8ECA1EC0DEEC0085351E /* AVGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGNavigationController.h; sourceTree = "<group>"; };
+		198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190D4A2A1EC10841008C6D1E /* TrackThumb */ = {
+			isa = PBXGroup;
+			children = (
+				190D4A2B1EC1086D008C6D1E /* AVGTrackThumbView.h */,
+				190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */,
+			);
+			name = TrackThumb;
+			sourceTree = "<group>";
+		};
 		198B8E6F1EBF7FD70085351E = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +127,11 @@
 		198B8E7A1EBF7FD70085351E /* iTunesMusic */ = {
 			isa = PBXGroup;
 			children = (
+				198B8EB01EBF804A0085351E /* Model */,
+				198B8EAF1EBF80470085351E /* View */,
+				198B8EAE1EBF80310085351E /* Controller */,
 				198B8E7E1EBF7FD70085351E /* AppDelegate.h */,
 				198B8E7F1EBF7FD70085351E /* AppDelegate.m */,
-				198B8E811EBF7FD70085351E /* ViewController.h */,
-				198B8E821EBF7FD70085351E /* ViewController.m */,
-				198B8E841EBF7FD70085351E /* Main.storyboard */,
 				198B8E871EBF7FD70085351E /* Assets.xcassets */,
 				198B8E891EBF7FD70085351E /* LaunchScreen.storyboard */,
 				198B8E8C1EBF7FD70085351E /* Info.plist */,
@@ -138,6 +164,97 @@
 				198B8EA21EBF7FD80085351E /* Info.plist */,
 			);
 			path = iTunesMusicUITests;
+			sourceTree = "<group>";
+		};
+		198B8EAE1EBF80310085351E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EC01EBF859C0085351E /* Table */,
+				198B8EBF1EBF858A0085351E /* Navigation */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		198B8EAF1EBF80470085351E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				190D4A2A1EC10841008C6D1E /* TrackThumb */,
+				198B8EB41EBF837C0085351E /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		198B8EB01EBF804A0085351E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EB81EBF83B20085351E /* Service */,
+				198B8EBD1EBF84C10085351E /* Track */,
+				198B8EBE1EBF85340085351E /* List */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		198B8EB41EBF837C0085351E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EB51EBF83A80085351E /* AVGTrackCell.h */,
+				198B8EB61EBF83A80085351E /* AVGTrackCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		198B8EB81EBF83B20085351E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EB91EBF84090085351E /* AVGServerManager.h */,
+				198B8EBC1EBF84A90085351E /* iTunesMusic */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		198B8EBC1EBF84A90085351E /* iTunesMusic */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EC11EC0CFD80085351E /* AVGTrackService.h */,
+				198B8EC21EC0CFD80085351E /* AVGTrackService.m */,
+			);
+			name = iTunesMusic;
+			sourceTree = "<group>";
+		};
+		198B8EBD1EBF84C10085351E /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EC71EC0D0770085351E /* AVGTrack.h */,
+				198B8EC81EC0D0770085351E /* AVGTrack.m */,
+			);
+			name = Track;
+			sourceTree = "<group>";
+		};
+		198B8EBE1EBF85340085351E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EC41EC0D05B0085351E /* AVGTrackList.h */,
+				198B8EC51EC0D05B0085351E /* AVGTrackList.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		198B8EBF1EBF858A0085351E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				198B8ECA1EC0DEEC0085351E /* AVGNavigationController.h */,
+				198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		198B8EC01EBF859C0085351E /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				198B8EB11EBF80AA0085351E /* AVGTrackTVC.h */,
+				198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */,
+			);
+			name = Table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +368,6 @@
 			files = (
 				198B8E8B1EBF7FD70085351E /* LaunchScreen.storyboard in Resources */,
 				198B8E881EBF7FD70085351E /* Assets.xcassets in Resources */,
-				198B8E861EBF7FD70085351E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +392,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				198B8E831EBF7FD70085351E /* ViewController.m in Sources */,
+				198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */,
+				198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */,
 				198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */,
+				198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */,
+				198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */,
+				190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */,
+				198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */,
+				198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */,
 				198B8E7D1EBF7FD70085351E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,14 +436,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		198B8E841EBF7FD70085351E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				198B8E851EBF7FD70085351E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		198B8E891EBF7FD70085351E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -514,6 +628,7 @@
 				198B8EA71EBF7FD80085351E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		198B8EA81EBF7FD80085351E /* Build configuration list for PBXNativeTarget "iTunesMusicTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +637,7 @@
 				198B8EAA1EBF7FD80085351E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		198B8EAB1EBF7FD80085351E /* Build configuration list for PBXNativeTarget "iTunesMusicUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +646,7 @@
 				198B8EAD1EBF7FD80085351E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

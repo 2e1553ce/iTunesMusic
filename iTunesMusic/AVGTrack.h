@@ -10,9 +10,10 @@
 
 @interface AVGTrack : NSObject
 
-@property (nonatomic, copy) NSString *artistName;
-@property (nonatomic, copy) NSString *trackName;
-@property (nonatomic, copy) NSString *trackPrice;
-@property (nonatomic, copy) NSString *thumbURLPath;
+@property (nonatomic, copy) NSString            *artistName;
+@property (nonatomic, copy) NSString            *name;
+@property (nonatomic, copy) NSString            *thumbURLPath;
+@property (nonatomic, strong) NSDecimalNumber   *price;
+@property (nonatomic, assign) NSInteger         time;
 
 @end

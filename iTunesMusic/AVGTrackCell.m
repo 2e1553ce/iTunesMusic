@@ -9,6 +9,8 @@
 #import "AVGTrackCell.h"
 #import "AVGTrackThumbView.h"
 #import "AVGTrack.h"
+#import "NSString+Additions.h"
+#import <Masonry.h>
 
 NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
@@ -17,6 +19,7 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 @property (nonatomic, strong) UILabel *artistNameLabel;
 @property (nonatomic, strong) UILabel *trackNameLabel;
 @property (nonatomic, strong) UILabel *trackPriceLabel;
+@property (nonatomic, strong) UILabel *trackTime;
 @property (nonatomic, strong) AVGTrackThumbView *trackThumbView;
 
 @end
@@ -35,6 +38,7 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     _artistNameLabel    = [UILabel new];
     _trackNameLabel     = [UILabel new];
     _trackPriceLabel    = [UILabel new];
+    _trackTime          = [UILabel new];
     _trackThumbView     = [AVGTrackThumbView new];
     
     _artistNameLabel.frame  = CGRectMake(20.0, 10.0, 100.0, 20.0);
@@ -43,16 +47,27 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     [self addSubview:_artistNameLabel];
     [self addSubview:_trackNameLabel];
     [self addSubview:_trackThumbView];
+    
+    // Masonry
+    
 }
 
 - (void)addTrack:(AVGTrack *)track {
-    self.artistNameLabel.text   = track.artistName;
-    self.trackNameLabel.text    = track.trackName;
+    self.artistNameLabel.text = track.artistName;
+    self.trackNameLabel.text  = track.name;
+    self.trackPriceLabel.text = [NSString stringWithFormat:@"%@", track.price];
+    self.trackTime.text = [NSString getTimeFromMilliseconds:track.time];
 }
 
 + (CGFloat)heightForCell {
-    return 80;
+    return 120;
 }
 
-
 @end
+// TODO:
+// Cellku nastroit s masonry
+// Cveta na TVC krasivo
+// convert track time
+// tableview begin updates etc
+// na Cellkinu View postavit gruzyashisya krug
+// Keshiravanie

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */; };
+		190D4A351EC14510008C6D1E /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A341EC14510008C6D1E /* NSString+Additions.m */; };
 		198B8E7D1EBF7FD70085351E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7C1EBF7FD70085351E /* main.m */; };
 		198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7F1EBF7FD70085351E /* AppDelegate.m */; };
 		198B8E881EBF7FD70085351E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198B8E871EBF7FD70085351E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC51EC0D05B0085351E /* AVGTrackList.m */; };
 		198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC81EC0D0770085351E /* AVGTrack.m */; };
 		198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */; };
+		BB3637E15330697FD378361F /* libPods-iTunesMusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		190D4A2B1EC1086D008C6D1E /* AVGTrackThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackThumbView.h; sourceTree = "<group>"; };
 		190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackThumbView.m; sourceTree = "<group>"; };
+		190D4A331EC14510008C6D1E /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		190D4A341EC14510008C6D1E /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		198B8E781EBF7FD70085351E /* iTunesMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198B8E7C1EBF7FD70085351E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		198B8E7E1EBF7FD70085351E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +72,9 @@
 		198B8EC81EC0D0770085351E /* AVGTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrack.m; sourceTree = "<group>"; };
 		198B8ECA1EC0DEEC0085351E /* AVGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGNavigationController.h; sourceTree = "<group>"; };
 		198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGNavigationController.m; sourceTree = "<group>"; };
+		6BD5CDE250A1E606B7A12C7A /* Pods-iTunesMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.release.xcconfig"; sourceTree = "<group>"; };
+		F4BE4535B1650C26B597B9B9 /* Pods-iTunesMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTunesMusic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB3637E15330697FD378361F /* libPods-iTunesMusic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +112,15 @@
 			name = TrackThumb;
 			sourceTree = "<group>";
 		};
+		190D4A321EC1448F008C6D1E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				190D4A331EC14510008C6D1E /* NSString+Additions.h */,
+				190D4A341EC14510008C6D1E /* NSString+Additions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		198B8E6F1EBF7FD70085351E = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +128,8 @@
 				198B8E941EBF7FD70085351E /* iTunesMusicTests */,
 				198B8E9F1EBF7FD80085351E /* iTunesMusicUITests */,
 				198B8E791EBF7FD70085351E /* Products */,
+				1C768B9339B5B0B9ED8EC582 /* Pods */,
+				FE324AD19C60AACF1594C3C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +146,7 @@
 		198B8E7A1EBF7FD70085351E /* iTunesMusic */ = {
 			isa = PBXGroup;
 			children = (
+				190D4A321EC1448F008C6D1E /* Categories */,
 				198B8EB01EBF804A0085351E /* Model */,
 				198B8EAF1EBF80470085351E /* View */,
 				198B8EAE1EBF80310085351E /* Controller */,
@@ -257,6 +277,23 @@
 			name = Table;
 			sourceTree = "<group>";
 		};
+		1C768B9339B5B0B9ED8EC582 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4BE4535B1650C26B597B9B9 /* Pods-iTunesMusic.debug.xcconfig */,
+				6BD5CDE250A1E606B7A12C7A /* Pods-iTunesMusic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE324AD19C60AACF1594C3C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,9 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 198B8EA51EBF7FD80085351E /* Build configuration list for PBXNativeTarget "iTunesMusic" */;
 			buildPhases = (
+				FBA5DC52C2EF4634AE36F8AA /* [CP] Check Pods Manifest.lock */,
 				198B8E741EBF7FD70085351E /* Sources */,
 				198B8E751EBF7FD70085351E /* Frameworks */,
 				198B8E761EBF7FD70085351E /* Resources */,
+				FFE73008B3B13B349831A091 /* [CP] Embed Pods Frameworks */,
+				13769257D108F128E47EE51B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,6 +427,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13769257D108F128E47EE51B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBA5DC52C2EF4634AE36F8AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE73008B3B13B349831A091 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		198B8E741EBF7FD70085351E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -395,6 +483,7 @@
 				198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */,
 				198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */,
 				198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */,
+				190D4A351EC14510008C6D1E /* NSString+Additions.m in Sources */,
 				198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */,
 				198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */,
 				190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */,
@@ -537,6 +626,7 @@
 		};
 		198B8EA61EBF7FD80085351E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4BE4535B1650C26B597B9B9 /* Pods-iTunesMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z48WYVF59J;
@@ -549,6 +639,7 @@
 		};
 		198B8EA71EBF7FD80085351E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD5CDE250A1E606B7A12C7A /* Pods-iTunesMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z48WYVF59J;

@@ -20,7 +20,7 @@ static const NSInteger tracksLimit = 50;
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *iTunesSession = [NSURLSession sessionWithConfiguration:sessionConfig];
     
-    NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=%ld&entity=music",
+    NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=%ld&entity=song",
                            name,
                            (long)tracksLimit];
     

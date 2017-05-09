@@ -7,6 +7,7 @@
 //
 
 #import "AVGNavigationController.h"
+#import "AVGTrackTVC.h"
 
 @interface AVGNavigationController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AVGMus *tableViewController = [[CBContactsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    AVGTrackTVC *tableViewController = [[AVGTrackTVC alloc] initWithStyle:UITableViewStylePlain];
     self.viewControllers = @[tableViewController] ;
 }
 @end

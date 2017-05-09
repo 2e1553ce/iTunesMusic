@@ -14,6 +14,8 @@
 
 @interface AVGTrackTVC () <UISearchBarDelegate>
 
+@property (strong, nonatomic) UISearchBar *searchBar;
+
 @property (nonatomic, strong) AVGTrackList *tracks;
 @property (nonatomic, strong) id <AVGServerManager> trackManager;
 
@@ -28,6 +30,12 @@
     
     self.navigationItem.title = @"Apple Music";
     [self.tableView registerClass:[AVGTrackCell class] forCellReuseIdentifier:AVGTrackCellIdentifier];
+    
+    CGRect bounds = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40.f);
+    self.searchBar = [[UISearchBar alloc] initWithFrame:bounds];
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Поиск";
+    self.tableView.tableHeaderView = self.searchBar;
 }
 
 #pragma mark - UITableViewDataSource
@@ -41,13 +49,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = (AVGTrackCell *)[tableView dequeueReusableCellWithIdentifier:AVGTrackCellIdentifier forIndexPath:indexPath];
     
-    return nil;
+    if (cell == nil) {
+        cell = [[AVGTrackCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AVGTrackCellIdentifier];
+    }
+    
+    [(AVGTrackCell *)cell addTrack:[self.tracks objectAtIndexedSubscript:indexPath.row]];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark UISearchBarDelegate
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     NSString *artistName = searchBar.text;
     
     self.trackManager = [AVGTrackService new];

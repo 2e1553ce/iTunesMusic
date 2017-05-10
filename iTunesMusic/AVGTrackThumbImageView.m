@@ -1,13 +1,13 @@
 //
-//  AVGTrackThumbView.h
+//  AVGTrackThumbImageView.m
 //  iTunesMusic
 //
 //  Created by aiuar on 08.05.17.
 //  Copyright © 2017 A.V. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AVGTrackThumbImageView.h"
 
-@interface AVGTrackThumbView : UIView
+@implementation AVGTrackThumbImageView
 
 @end

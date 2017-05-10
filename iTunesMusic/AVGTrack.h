@@ -14,6 +14,6 @@
 @property (nonatomic, copy) NSString            *name;
 @property (nonatomic, copy) NSString            *thumbURLPath;
 @property (nonatomic, strong) NSDecimalNumber   *price;
-@property (nonatomic, assign) NSInteger         time;
+@property (nonatomic, copy) NSString            *time;
 
 @end

@@ -25,8 +25,13 @@
         [result appendFormat: @"%lu:", hours];
     
     [result appendFormat: @"%2lu:", minutes];
-    [result appendFormat: @"%2lu:", seconds];
-    [result appendFormat: @"%2lu", milliseconds];
+    
+    if(seconds < 10)
+        [result appendFormat: @"0%1lu", seconds];
+    else
+        [result appendFormat: @"%2lu", seconds];
+    
+    //[result appendFormat: @"%2lu", milliseconds];
     
     return result;
 }

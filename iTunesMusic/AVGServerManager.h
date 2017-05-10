@@ -7,11 +7,15 @@
 //
 
 @class AVGTrackList;
+@class UIImage;
 
 @protocol AVGServerManager <NSObject>
 
 @required
 - (void)getTracksByArtist:(NSString *)name
-               withCompletionHandler:(void(^)(AVGTrackList *, NSError *))completion;
+    withCompletionHandler:(void(^)(AVGTrackList *, NSError *))completion;
+
+- (void)downloadImageFrom:(NSURL *)url
+    withCompletionHandler:(void(^)(UIImage *, NSError *))completion;
 
 @end

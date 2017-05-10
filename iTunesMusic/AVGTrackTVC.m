@@ -11,6 +11,7 @@
 #import "AVGServerManager.h"
 #import "AVGTrackCell.h"
 #import "AVGTrackService.h"
+#import "AVGTrack.h"
 
 @interface AVGTrackTVC () <UISearchBarDelegate>
 
@@ -49,13 +50,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (AVGTrackCell *)[tableView dequeueReusableCellWithIdentifier:AVGTrackCellIdentifier forIndexPath:indexPath];
+    AVGTrackCell *cell = [tableView dequeueReusableCellWithIdentifier:AVGTrackCellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
         cell = [[AVGTrackCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AVGTrackCellIdentifier];
     }
     
-    [(AVGTrackCell *)cell addTrack:[self.tracks objectAtIndexedSubscript:indexPath.row]];
+    AVGTrack *track = [self.tracks objectAtIndexedSubscript:indexPath.row];
+    [cell addTrack: track];
+
+    NSURL *url = [NSURL URLWithString:track.thumbURLPath];
+    
+    __weak AVGTrackCell *weakCell = cell;
+    [self.trackManager downloadImageFrom:url
+                   withCompletionHandler:^(UIImage *image, NSError *error) {
+                       __strong AVGTrackCell *strongCell = weakCell;
+                       [strongCell addImage:image];
+                       [strongCell layoutSubviews];
+    }];
     
     return cell;
 }
@@ -66,15 +78,24 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [AVGTrackCell heightForCell];
+}
+
 #pragma mark UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSString *artistName = searchBar.text;
     
+    
+    
+    NSString *artistName = searchBar.text;
     self.trackManager = [AVGTrackService new];
+    
+    __weak typeof(self)weakSelf = self;
     [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
-        self.tracks = trackList;
-        [self.tableView reloadData];
+        __strong typeof(self)strongSelf = weakSelf;
+        strongSelf.tracks = trackList;
+        [strongSelf.tableView reloadData];
     }];
 }
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */; };
+		190D4A2D1EC1086D008C6D1E /* AVGTrackThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A2C1EC1086D008C6D1E /* AVGTrackThumbImageView.m */; };
 		190D4A351EC14510008C6D1E /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 190D4A341EC14510008C6D1E /* NSString+Additions.m */; };
 		198B8E7D1EBF7FD70085351E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7C1EBF7FD70085351E /* main.m */; };
 		198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E7F1EBF7FD70085351E /* AppDelegate.m */; };
@@ -42,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		190D4A2B1EC1086D008C6D1E /* AVGTrackThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackThumbView.h; sourceTree = "<group>"; };
-		190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackThumbView.m; sourceTree = "<group>"; };
+		190D4A2B1EC1086D008C6D1E /* AVGTrackThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackThumbImageView.h; sourceTree = "<group>"; };
+		190D4A2C1EC1086D008C6D1E /* AVGTrackThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackThumbImageView.m; sourceTree = "<group>"; };
 		190D4A331EC14510008C6D1E /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
 		190D4A341EC14510008C6D1E /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		198B8E781EBF7FD70085351E /* iTunesMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,8 +106,8 @@
 		190D4A2A1EC10841008C6D1E /* TrackThumb */ = {
 			isa = PBXGroup;
 			children = (
-				190D4A2B1EC1086D008C6D1E /* AVGTrackThumbView.h */,
-				190D4A2C1EC1086D008C6D1E /* AVGTrackThumbView.m */,
+				190D4A2B1EC1086D008C6D1E /* AVGTrackThumbImageView.h */,
+				190D4A2C1EC1086D008C6D1E /* AVGTrackThumbImageView.m */,
 			);
 			name = TrackThumb;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				190D4A351EC14510008C6D1E /* NSString+Additions.m in Sources */,
 				198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */,
 				198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */,
-				190D4A2D1EC1086D008C6D1E /* AVGTrackThumbView.m in Sources */,
+				190D4A2D1EC1086D008C6D1E /* AVGTrackThumbImageView.m in Sources */,
 				198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */,
 				198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */,
 				198B8E7D1EBF7FD70085351E /* main.m in Sources */,

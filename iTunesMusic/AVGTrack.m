@@ -10,4 +10,22 @@
 
 @implementation AVGTrack
 
+-(instancetype)initWithArtistName:(NSString *)artistName
+                        trackName:(NSString *)name
+                     thumbURLPath:(NSString *)thumbURLPath
+                            price:(NSDecimalNumber *)price
+                             time:(NSString *)time {
+    self = [super init];
+    
+    if(self) {
+        self.artistName = artistName;
+        self.name = name;
+        self.thumbURLPath = thumbURLPath;
+        self.price = price;
+        self.time = time;
+    }
+    
+    return self;
+}
+
 @end

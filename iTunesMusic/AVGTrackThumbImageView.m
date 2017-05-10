@@ -10,4 +10,14 @@
 
 @implementation AVGTrackThumbImageView
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.layer.cornerRadius = 10.f;
+        self.layer.masksToBounds = YES;
+        self.layer.shouldRasterize = YES;
+    }
+    return self;
+}
+
 @end

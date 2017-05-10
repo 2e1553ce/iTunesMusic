@@ -11,4 +11,6 @@
 
 @interface AVGTrackService : NSObject <AVGServerManager>
 
+@property (nonatomic, strong) NSURLSession *iTunesSession;
+
 @end

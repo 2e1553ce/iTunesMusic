@@ -31,7 +31,8 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 - (void)createSubviewsWithContact {
     _artistNameLabel = [UILabel new];
     _artistNameLabel.textAlignment = NSTextAlignmentLeft;
-    _artistNameLabel.font = [UIFont systemFontOfSize:14];
+    _artistNameLabel.font = [UIFont systemFontOfSize:12];
+    _artistNameLabel.textColor = UIColor.grayColor;
     
     _trackNameLabel = [UILabel new];
     _trackNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -39,11 +40,13 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     
     _trackPriceLabel = [UILabel new];
     _trackPriceLabel.textAlignment = NSTextAlignmentLeft;
-    _trackPriceLabel.font = [UIFont systemFontOfSize:14];
+    _trackPriceLabel.font = [UIFont systemFontOfSize:12];
+    _trackPriceLabel.textColor = UIColor.grayColor;
     
     _trackTimeLabel = [UILabel new];
     _trackTimeLabel.textAlignment = NSTextAlignmentLeft;
-    _trackTimeLabel.font = [UIFont systemFontOfSize:14];
+    _trackTimeLabel.font = [UIFont systemFontOfSize:12];
+    _trackTimeLabel.textColor = UIColor.grayColor;
     
     _trackThumbImageView = [AVGTrackThumbImageView new];
     
@@ -100,7 +103,13 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 - (void)addTrack:(AVGTrack *)track {
     self.artistNameLabel.text   = track.artistName;
     self.trackNameLabel.text    = track.name;
-    self.trackPriceLabel.text   = [NSString stringWithFormat:@"%@$", track.price];
+    
+    if([track.price integerValue] < 0) {
+        self.trackPriceLabel.text   = @"нет цены";
+    } else {
+        self.trackPriceLabel.text   = [NSString stringWithFormat:@"%@$", track.price];
+    }
+    
     self.trackTimeLabel.text    = track.time;
 }
 
@@ -114,8 +123,5 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
 @end
 // TODO:
-// Cveta na TVC krasivo
-// tableview begin updates etc
 // na Cellkinu View postavit gruzyashisya krug
-// Keshiravanie
-// a lil rounded
+// didnt find trak - alert

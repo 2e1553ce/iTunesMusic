@@ -37,6 +37,14 @@
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Поиск";
     self.tableView.tableHeaderView = self.searchBar;
+    
+    UIToolbar *ViewForDoneButtonOnKeyboard = [UIToolbar new];
+    [ViewForDoneButtonOnKeyboard sizeToFit];
+    UIBarButtonItem *btnDoneOnKeyboard = [[UIBarButtonItem alloc] initWithTitle:@"Готово"
+                                                                          style:UIBarButtonItemStyleDone target:self
+                                                                         action:@selector(doneBtnFromKeyboardClicked:)];
+    [ViewForDoneButtonOnKeyboard setItems:[NSArray arrayWithObjects:btnDoneOnKeyboard, nil]];
+    self.searchBar.inputAccessoryView = ViewForDoneButtonOnKeyboard;
 }
 
 #pragma mark - UITableViewDataSource
@@ -75,6 +83,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.searchBar endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -84,9 +93,16 @@
 
 #pragma mark UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    
+    // Cancel all tasks
+    if(self.trackManager) {
+        [((AVGTrackService *)self.trackManager).iTunesSession getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
+            for(NSURLSessionTask *task in tasks) {
+                [task cancel];
+            }
+        }];
+    }
     
     NSString *artistName = searchBar.text;
     self.trackManager = [AVGTrackService new];
@@ -95,8 +111,19 @@
     [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
         __strong typeof(self)strongSelf = weakSelf;
         strongSelf.tracks = trackList;
-        [strongSelf.tableView reloadData];
+        
+        NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+        [self.tableView beginUpdates];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
     }];
+}
+
+#pragma mark - Actions
+
+- (void)doneBtnFromKeyboardClicked:(id)sender
+{
+    [self.searchBar endEditing:YES];
 }
 
 @end

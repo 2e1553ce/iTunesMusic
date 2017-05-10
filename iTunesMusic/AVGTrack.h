@@ -16,4 +16,10 @@
 @property (nonatomic, strong) NSDecimalNumber   *price;
 @property (nonatomic, copy) NSString            *time;
 
+- (instancetype)initWithArtistName:(NSString *)artistName
+                        trackName:(NSString *)name
+                     thumbURLPath:(NSString *)thumbURLPath
+                            price:(NSDecimalNumber *)price
+                             time:(NSString *)time;
+
 @end

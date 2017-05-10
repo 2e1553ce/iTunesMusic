@@ -76,6 +76,7 @@
                    withCompletionHandler:^(UIImage *image, NSError *error) {
                        __strong AVGTrackCell *strongCell = weakCell;
                        [strongCell addImage:image];
+                       //[strongCell stopActivityIndicator];
                        [strongCell layoutSubviews];
     }];
     

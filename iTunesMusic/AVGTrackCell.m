@@ -117,6 +117,10 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     self.trackThumbImageView.image = downloadedImage;
 }
 
+- (void)stopActivityIndicator {
+    [self.trackThumbImageView.activityIndicatorView stopAnimating];
+}
+
 + (CGFloat)heightForCell {
     return 70;
 }

@@ -32,12 +32,14 @@
     self.navigationItem.title = @"Apple Music";
     [self.tableView registerClass:[AVGTrackCell class] forCellReuseIdentifier:AVGTrackCellIdentifier];
     
+    // Search bar
     CGRect bounds = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40.f);
     self.searchBar = [[UISearchBar alloc] initWithFrame:bounds];
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Поиск";
     self.tableView.tableHeaderView = self.searchBar;
     
+    // Done button on keyboard
     UIToolbar *ViewForDoneButtonOnKeyboard = [UIToolbar new];
     [ViewForDoneButtonOnKeyboard sizeToFit];
     UIBarButtonItem *btnDoneOnKeyboard = [[UIBarButtonItem alloc] initWithTitle:@"Готово"

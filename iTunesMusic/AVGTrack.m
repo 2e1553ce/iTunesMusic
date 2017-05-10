@@ -18,11 +18,11 @@
     self = [super init];
     
     if(self) {
-        self.artistName = artistName;
-        self.name = name;
-        self.thumbURLPath = thumbURLPath;
-        self.price = price;
-        self.time = time;
+        _artistName = artistName;
+        _name = name;
+        _thumbURLPath = thumbURLPath;
+        _price = price;
+        _time = time;
     }
     
     return self;

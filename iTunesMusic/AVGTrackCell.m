@@ -123,5 +123,5 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
 @end
 // TODO:
-// na Cellkinu View postavit gruzyashisya krug
-// didnt find trak - alert
+// add indicator on view
+// didnt find track - alert

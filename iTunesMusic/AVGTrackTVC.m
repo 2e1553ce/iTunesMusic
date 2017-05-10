@@ -76,7 +76,7 @@
                    withCompletionHandler:^(UIImage *image, NSError *error) {
                        __strong AVGTrackCell *strongCell = weakCell;
                        [strongCell addImage:image];
-                       //[strongCell stopActivityIndicator];
+                       [strongCell stopActivityIndicator];
                        [strongCell layoutSubviews];
     }];
     
@@ -112,13 +112,17 @@
     
     __weak typeof(self)weakSelf = self;
     [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
-        __strong typeof(self)strongSelf = weakSelf;
-        strongSelf.tracks = trackList;
-        
-        NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
-        [self.tableView beginUpdates];
-        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
-        [self.tableView endUpdates];
+        if([trackList count] > 0) {
+            __strong typeof(self)strongSelf = weakSelf;
+            strongSelf.tracks = trackList;
+            
+            NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+            [self.tableView beginUpdates];
+            [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+        } else {
+            // No tracks! - show uiview animationduration?
+        }
     }];
 }
 

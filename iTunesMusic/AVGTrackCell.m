@@ -20,6 +20,8 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
 @implementation AVGTrackCell
 
+#pragma mark - initialization
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self) {
@@ -27,6 +29,8 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     }
     return self;
 }
+
+#pragma mark - Constraints
 
 - (void)createSubviewsWithContact {
     _artistNameLabel = [UILabel new];
@@ -100,6 +104,8 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     }];
 }
 
+#pragma mark - Adding track to cell
+
 - (void)addTrack:(AVGTrack *)track {
     self.artistNameLabel.text   = track.artistName;
     self.trackNameLabel.text    = track.name;
@@ -117,9 +123,13 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     self.trackThumbImageView.image = downloadedImage;
 }
 
+#pragma mark - Activity indicator
+
 - (void)stopActivityIndicator {
     [self.trackThumbImageView.activityIndicatorView stopAnimating];
 }
+
+#pragma mark - Cell Height
 
 + (CGFloat)heightForCell {
     return 70;
@@ -127,5 +137,4 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
 @end
 // TODO:
-// add indicator on view
 // didnt find track - alert

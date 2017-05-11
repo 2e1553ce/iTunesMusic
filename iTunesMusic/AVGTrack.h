@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+@class UIImage;
 
 @interface AVGTrack : NSObject
 
@@ -15,6 +16,7 @@
 @property (nonatomic, copy) NSString            *thumbURLPath;
 @property (nonatomic, strong) NSDecimalNumber   *price;
 @property (nonatomic, copy) NSString            *time;
+@property (nonatomic, strong) UIImage           *thumbImage;
 
 - (instancetype)initWithArtistName:(NSString *)artistName
                         trackName:(NSString *)name

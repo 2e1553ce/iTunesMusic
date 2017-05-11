@@ -72,13 +72,23 @@
     NSURL *url = [NSURL URLWithString:track.thumbURLPath];
     
     __weak AVGTrackCell *weakCell = cell;
-    [self.trackManager downloadImageFrom:url
-                   withCompletionHandler:^(UIImage *image, NSError *error) {
-                       __strong AVGTrackCell *strongCell = weakCell;
-                       [strongCell addImage:image];
-                       [strongCell stopActivityIndicator];
-                       [strongCell layoutSubviews];
-    }];
+    __weak typeof(self) weakSelf = self;
+    
+    if([self.tracks objectAtIndexedSubscript:indexPath.row].thumbImage) {
+        [cell addImage:[self.tracks objectAtIndexedSubscript:indexPath.row].thumbImage];
+    } else {
+        [self.trackManager downloadImageFrom:url
+                       withCompletionHandler:^(UIImage *image, NSError *error) {
+                           __strong AVGTrackCell *strongCell = weakCell;
+                           [strongCell addImage:image];
+                           [strongCell stopActivityIndicator];
+                           [strongCell layoutSubviews];
+                           
+                           __strong typeof(self) strongSelf = weakSelf;
+                           [strongSelf.tracks objectAtIndexedSubscript:indexPath.row].thumbImage = image;
+                           
+                       }];
+    }
     
     return cell;
 }
@@ -110,18 +120,20 @@
     NSString *artistName = searchBar.text;
     self.trackManager = [AVGTrackService new];
     
-    __weak typeof(self)weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
         if([trackList count] > 0) {
-            __strong typeof(self)strongSelf = weakSelf;
+            __strong typeof(self) strongSelf = weakSelf;
             strongSelf.tracks = trackList;
             
             NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
             [self.tableView beginUpdates];
             [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView endUpdates];
+            [self.searchBar endEditing:YES];
         } else {
             // No tracks! - show uiview animationduration?
+            [self.searchBar endEditing:YES];
         }
     }];
 }

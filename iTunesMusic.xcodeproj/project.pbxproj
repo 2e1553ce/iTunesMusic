@@ -15,12 +15,10 @@
 		198B8E8B1EBF7FD70085351E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198B8E891EBF7FD70085351E /* LaunchScreen.storyboard */; };
 		198B8E961EBF7FD70085351E /* iTunesMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8E951EBF7FD70085351E /* iTunesMusicTests.m */; };
 		198B8EA11EBF7FD80085351E /* iTunesMusicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EA01EBF7FD80085351E /* iTunesMusicUITests.m */; };
-		198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */; };
+		198B8EB31EBF80AA0085351E /* AVGTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB21EBF80AA0085351E /* AVGTrackTableViewController.m */; };
 		198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB61EBF83A80085351E /* AVGTrackCell.m */; };
 		198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC21EC0CFD80085351E /* AVGTrackService.m */; };
-		198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC51EC0D05B0085351E /* AVGTrackList.m */; };
 		198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC81EC0D0770085351E /* AVGTrack.m */; };
-		198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */; };
 		BB3637E15330697FD378361F /* libPods-iTunesMusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */; };
 /* End PBXBuildFile section */
 
@@ -59,19 +57,15 @@
 		198B8E9C1EBF7FD80085351E /* iTunesMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198B8EA01EBF7FD80085351E /* iTunesMusicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesMusicUITests.m; sourceTree = "<group>"; };
 		198B8EA21EBF7FD80085351E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		198B8EB11EBF80AA0085351E /* AVGTrackTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackTVC.h; sourceTree = "<group>"; };
-		198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackTVC.m; sourceTree = "<group>"; };
+		198B8EB11EBF80AA0085351E /* AVGTrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackTableViewController.h; sourceTree = "<group>"; };
+		198B8EB21EBF80AA0085351E /* AVGTrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackTableViewController.m; sourceTree = "<group>"; };
 		198B8EB51EBF83A80085351E /* AVGTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackCell.h; sourceTree = "<group>"; };
 		198B8EB61EBF83A80085351E /* AVGTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackCell.m; sourceTree = "<group>"; };
 		198B8EB91EBF84090085351E /* AVGServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGServerManager.h; sourceTree = "<group>"; };
 		198B8EC11EC0CFD80085351E /* AVGTrackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackService.h; sourceTree = "<group>"; };
 		198B8EC21EC0CFD80085351E /* AVGTrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackService.m; sourceTree = "<group>"; };
-		198B8EC41EC0D05B0085351E /* AVGTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrackList.h; sourceTree = "<group>"; };
-		198B8EC51EC0D05B0085351E /* AVGTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackList.m; sourceTree = "<group>"; };
 		198B8EC71EC0D0770085351E /* AVGTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrack.h; sourceTree = "<group>"; };
 		198B8EC81EC0D0770085351E /* AVGTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrack.m; sourceTree = "<group>"; };
-		198B8ECA1EC0DEEC0085351E /* AVGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGNavigationController.h; sourceTree = "<group>"; };
-		198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGNavigationController.m; sourceTree = "<group>"; };
 		6BD5CDE250A1E606B7A12C7A /* Pods-iTunesMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.release.xcconfig"; sourceTree = "<group>"; };
 		F4BE4535B1650C26B597B9B9 /* Pods-iTunesMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTunesMusic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				198B8EC01EBF859C0085351E /* Table */,
-				198B8EBF1EBF858A0085351E /* Navigation */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -209,7 +202,6 @@
 			children = (
 				198B8EB81EBF83B20085351E /* Service */,
 				198B8EBD1EBF84C10085351E /* Track */,
-				198B8EBE1EBF85340085351E /* List */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -250,29 +242,11 @@
 			name = Track;
 			sourceTree = "<group>";
 		};
-		198B8EBE1EBF85340085351E /* List */ = {
-			isa = PBXGroup;
-			children = (
-				198B8EC41EC0D05B0085351E /* AVGTrackList.h */,
-				198B8EC51EC0D05B0085351E /* AVGTrackList.m */,
-			);
-			name = List;
-			sourceTree = "<group>";
-		};
-		198B8EBF1EBF858A0085351E /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				198B8ECA1EC0DEEC0085351E /* AVGNavigationController.h */,
-				198B8ECB1EC0DEEC0085351E /* AVGNavigationController.m */,
-			);
-			name = Navigation;
-			sourceTree = "<group>";
-		};
 		198B8EC01EBF859C0085351E /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				198B8EB11EBF80AA0085351E /* AVGTrackTVC.h */,
-				198B8EB21EBF80AA0085351E /* AVGTrackTVC.m */,
+				198B8EB11EBF80AA0085351E /* AVGTrackTableViewController.h */,
+				198B8EB21EBF80AA0085351E /* AVGTrackTableViewController.m */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -480,15 +454,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				198B8EC61EC0D05B0085351E /* AVGTrackList.m in Sources */,
 				198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */,
 				198B8E801EBF7FD70085351E /* AppDelegate.m in Sources */,
 				198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */,
-				198B8EB31EBF80AA0085351E /* AVGTrackTVC.m in Sources */,
+				198B8EB31EBF80AA0085351E /* AVGTrackTableViewController.m in Sources */,
 				190D4A2D1EC1086D008C6D1E /* AVGTrackThumbImageView.m in Sources */,
 				198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */,
 				1933AFA61EC5E10A008001E4 /* NSString+AVGTimeFromMilliseconds.m in Sources */,
-				198B8ECC1EC0DEEC0085351E /* AVGNavigationController.m in Sources */,
 				198B8E7D1EBF7FD70085351E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

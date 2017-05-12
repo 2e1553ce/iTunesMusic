@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AVGNavigationController.h"
+#import "AVGTrackTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +26,10 @@
                                                            }];
     [[UINavigationBar appearance] setTranslucent:NO];
     
-    AVGNavigationController *navigationController = [AVGNavigationController new];
+    UINavigationController *navigationController = [UINavigationController new];
+    
+    AVGTrackTableViewController *tableViewController = [[AVGTrackTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    navigationController.viewControllers = @[tableViewController] ;
     
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     window.rootViewController = navigationController;

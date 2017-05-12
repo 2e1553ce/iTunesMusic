@@ -1,28 +1,27 @@
 //
-//  AVGTrackTVC.m
+//  AVGTrackTableViewController.m
 //  iTunesMusic
 //
 //  Created by aiuar on 07.05.17.
 //  Copyright © 2017 A.V. All rights reserved.
 //
 
-#import "AVGTrackTVC.h"
-#import "AVGTrackList.h"
+#import "AVGTrackTableViewController.h"
 #import "AVGServerManager.h"
 #import "AVGTrackCell.h"
 #import "AVGTrackService.h"
 #import "AVGTrack.h"
 
-@interface AVGTrackTVC () <UISearchBarDelegate>
+@interface AVGTrackTableViewController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) UISearchBar *searchBar;
 
-@property (nonatomic, strong) AVGTrackList *tracks;
+@property (nonatomic, strong) NSArray *tracks;
 @property (nonatomic, strong) id <AVGServerManager> trackManager;
 
 @end
 
-@implementation AVGTrackTVC
+@implementation AVGTrackTableViewController
 
 #pragma mark - Life cycle
 
@@ -114,7 +113,7 @@
     self.trackManager = [AVGTrackService new];
     
     __weak typeof(self) weakSelf = self;
-    [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
+    [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(NSArray *trackList, NSError *error) {
         
         if ([trackList count] > 0) {
             __strong typeof(self) strongSelf = weakSelf;

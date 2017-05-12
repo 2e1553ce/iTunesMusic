@@ -1,5 +1,5 @@
 //
-//  AVGTrackTVC.h
+//  AVGTrackTableViewController.h
 //  iTunesMusic
 //
 //  Created by aiuar on 07.05.17.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface AVGTrackTVC : UITableViewController
+@interface AVGTrackTableViewController : UITableViewController
 
 @end

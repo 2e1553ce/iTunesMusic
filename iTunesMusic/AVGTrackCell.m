@@ -9,7 +9,6 @@
 #import "AVGTrackCell.h"
 #import "AVGTrackThumbImageView.h"
 #import "AVGTrack.h"
-#import "NSString+Additions.h"
 #import <Masonry.h>
 
 NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
@@ -24,9 +23,10 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if(self) {
+    if (self) {
         [self createSubviewsWithContact];
     }
+    
     return self;
 }
 
@@ -98,7 +98,7 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     // Right-bot track time label
     [self.trackPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20));
-        make.left.equalTo(self.artistNameLabel.mas_right).with.offset(5);
+        make.left.equalTo(self.trackNameLabel.mas_right).with.offset(5);
         make.right.equalTo(superview).with.offset(-10);
         make.centerY.equalTo(@(superview.center.y)).with.offset(12);
     }];
@@ -110,13 +110,13 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
     self.artistNameLabel.text   = track.artistName;
     self.trackNameLabel.text    = track.name;
     
-    if([track.price integerValue] < 0) {
-        self.trackPriceLabel.text   = @"нет цены";
+    if ([track.price integerValue] < 0) {
+        self.trackPriceLabel.text = @"нет цены";
     } else {
-        self.trackPriceLabel.text   = [NSString stringWithFormat:@"%@$", track.price];
+        self.trackPriceLabel.text = [NSString stringWithFormat:@"%@$", track.price];
     }
     
-    self.trackTimeLabel.text    = track.time;
+    self.trackTimeLabel.text = track.time;
 }
 
 - (void)addImage:(UIImage *)downloadedImage {
@@ -136,5 +136,3 @@ NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";
 }
 
 @end
-// TODO:
-// didnt find track - alert

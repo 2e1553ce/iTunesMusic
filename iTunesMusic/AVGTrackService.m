@@ -10,11 +10,13 @@
 #import "AVGTrackService.h"
 #import "AVGTrackList.h"
 #import "AVGTrack.h"
-#import "NSString+Additions.h"
+#import "NSString+AVGTimeFromMilliseconds.h"
 
 static const NSInteger tracksLimit = 50;
 
 @interface AVGTrackService ()
+
+@property (nonatomic, strong) NSCache *imageCache;
 
 @end
 
@@ -24,12 +26,10 @@ static const NSInteger tracksLimit = 50;
 
 - (instancetype)init {
     self = [super init];
-    
-    if(self) {
+    if (self) {
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.iTunesSession = [NSURLSession sessionWithConfiguration:sessionConfig];
-        
-        [self setSharedCacheForImages];
+        self.imageCache = [NSCache new];
     }
     
     return self;
@@ -38,28 +38,33 @@ static const NSInteger tracksLimit = 50;
 #pragma mark - AVGServerManager protocol methods
 
 - (void)getTracksByArtist:(NSString *)name
-               withCompletionHandler:(void(^)(AVGTrackList *, NSError *))completion {
+               withCompletionHandler:(void(^)(AVGTrackList *trackList, NSError *error))completion {
+    
     NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=%ld&entity=song", name, (long)tracksLimit];
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
+    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:
+                                       [NSCharacterSet URLFragmentAllowedCharacterSet]]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL: url];
-    [request setHTTPMethod: @"GET"];
+    [request setURL:url];
+    [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
+    // Formatter for track price
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 2;
+    formatter.locale = [NSLocale currentLocale];
+    
     [[self.iTunesSession dataTaskWithRequest:request
                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error: &error];
+                         
+                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                          dict = dict[@"results"];
                          
                          NSMutableArray *tracksArray = [NSMutableArray new];
-                         
-                         for(id object in dict) {
+                         for (id object in dict) {
                              // Track price
-                             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-                             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-                             [formatter setMaximumFractionDigits:2];
                              NSString *priceStr = [formatter stringFromNumber:object[@"trackPrice"]];
                              
                              AVGTrack *track = [[AVGTrack alloc] initWithArtistName:object[@"artistName"]
@@ -68,51 +73,39 @@ static const NSInteger tracksLimit = 50;
                                                                               price:[NSDecimalNumber decimalNumberWithString:priceStr]
                                                                                time:[NSString getTimeFromMilliseconds:[object[@"trackTimeMillis"] integerValue]]];
                              
-                             [tracksArray addObject: track];
+                             [tracksArray addObject:track];
                          }
                          
                          AVGTrackList *tracks = [[AVGTrackList alloc] initWithArray:tracksArray];
-                         
                          dispatch_async(dispatch_get_main_queue(), ^{
                              completion(tracks, error);
                          });
     }] resume];
 }
 
-- (void)downloadImageFrom:(NSURL *)url withCompletionHandler:(void(^)(UIImage *, NSError *))completion {
+- (void)downloadImageFrom:(NSURL *)url withCompletionHandler:(void(^)(UIImage *image, NSError *error))completion {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     
-#warning NOT WORKING! - ASK!
-    NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
-    
-    if (cachedResponse.data) {
-        UIImage *downloadedImage = [UIImage imageWithData:cachedResponse.data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(downloadedImage, nil);
-        });
+    UIImage *cachedImage = [self.imageCache objectForKey:request];
+    if (cachedImage) {
+        NSLog(@"Returned Cached Image");
+        completion(cachedImage, nil);
     } else {
         [[self.iTunesSession downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
             UIImage *downloadedImage = [UIImage imageWithData:
                                         [NSData dataWithContentsOfURL:location]];
-            if(downloadedImage) {
+            // Caching image
+            [self.imageCache setObject:downloadedImage forKey:request];
+            
+            if (downloadedImage) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(downloadedImage, error);
                 });
             }
         }] resume];
     }
-}
-
-#pragma mark - Cache size
-
-- (void)setSharedCacheForImages
-{
-    NSUInteger cashSize = 250 * 1024 * 1024;
-    NSUInteger cashDiskSize = 250 * 1024 * 1024;
-    NSURLCache *imageCache = [[NSURLCache alloc] initWithMemoryCapacity:cashSize diskCapacity:cashDiskSize diskPath:@"nsurlcache"];
-    [NSURLCache setSharedURLCache:imageCache];
-    //sleep(1);
 }
 
 @end

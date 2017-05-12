@@ -42,10 +42,10 @@
     // Done button on keyboard
     UIToolbar *ViewForDoneButtonOnKeyboard = [UIToolbar new];
     [ViewForDoneButtonOnKeyboard sizeToFit];
-    UIBarButtonItem *btnDoneOnKeyboard = [[UIBarButtonItem alloc] initWithTitle:@"Готово"
+    UIBarButtonItem *keyboardDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Готово"
                                                                           style:UIBarButtonItemStyleDone target:self
-                                                                         action:@selector(doneBtnFromKeyboardClicked:)];
-    [ViewForDoneButtonOnKeyboard setItems:[NSArray arrayWithObjects:btnDoneOnKeyboard, nil]];
+                                                                         action:@selector(doneButtonFromKeyboardClicked:)];
+    [ViewForDoneButtonOnKeyboard setItems:[NSArray arrayWithObjects:keyboardDoneButton, nil]];
     self.searchBar.inputAccessoryView = ViewForDoneButtonOnKeyboard;
 }
 
@@ -67,28 +67,21 @@
     }
     
     AVGTrack *track = [self.tracks objectAtIndexedSubscript:indexPath.row];
-    [cell addTrack: track];
-
-    NSURL *url = [NSURL URLWithString:track.thumbURLPath];
+    [cell addTrack:track];
     
     __weak AVGTrackCell *weakCell = cell;
-    __weak typeof(self) weakSelf = self;
     
-    if([self.tracks objectAtIndexedSubscript:indexPath.row].thumbImage) {
-        [cell addImage:[self.tracks objectAtIndexedSubscript:indexPath.row].thumbImage];
-    } else {
-        [self.trackManager downloadImageFrom:url
-                       withCompletionHandler:^(UIImage *image, NSError *error) {
-                           __strong AVGTrackCell *strongCell = weakCell;
+    NSURL *url = [NSURL URLWithString:track.thumbURLPath];
+    [self.trackManager downloadImageFrom:url
+                   withCompletionHandler:^(UIImage *image, NSError *error) {
+                       
+                       __strong AVGTrackCell *strongCell = weakCell;
+                       if (strongCell) {
                            [strongCell addImage:image];
                            [strongCell stopActivityIndicator];
                            [strongCell layoutSubviews];
-                           
-                           __strong typeof(self) strongSelf = weakSelf;
-                           [strongSelf.tracks objectAtIndexedSubscript:indexPath.row].thumbImage = image;
-                           
-                       }];
-    }
+                       }
+                   }];
     
     return cell;
 }
@@ -109,7 +102,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
     // Cancel all tasks
-    if(self.trackManager) {
+    if (self.trackManager) {
         [((AVGTrackService *)self.trackManager).iTunesSession getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
             for(NSURLSessionTask *task in tasks) {
                 [task cancel];
@@ -122,9 +115,12 @@
     
     __weak typeof(self) weakSelf = self;
     [self.trackManager getTracksByArtist:artistName withCompletionHandler:^(AVGTrackList *trackList, NSError *error) {
-        if([trackList count] > 0) {
+        
+        if ([trackList count] > 0) {
             __strong typeof(self) strongSelf = weakSelf;
-            strongSelf.tracks = trackList;
+            if (strongSelf) {
+                strongSelf.tracks = trackList;
+            }
             
             NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
             [self.tableView beginUpdates];
@@ -140,8 +136,7 @@
 
 #pragma mark - Actions
 
-- (void)doneBtnFromKeyboardClicked:(id)sender
-{
+- (void)doneButtonFromKeyboardClicked:(id)sender {
     [self.searchBar endEditing:YES];
 }
 

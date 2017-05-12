@@ -13,9 +13,9 @@
 
 @required
 - (void)getTracksByArtist:(NSString *)name
-    withCompletionHandler:(void(^)(AVGTrackList *, NSError *))completion;
+    withCompletionHandler:(void(^)(AVGTrackList *trackList, NSError *error))completion;
 
 - (void)downloadImageFrom:(NSURL *)url
-    withCompletionHandler:(void(^)(UIImage *, NSError *))completion;
+    withCompletionHandler:(void(^)(UIImage *image, NSError *error))completion;
 
 @end

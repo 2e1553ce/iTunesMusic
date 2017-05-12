@@ -19,10 +19,10 @@
 
 - (instancetype)initWithArray:(NSArray<AVGTrack *> *)tracks {
     self = [super init];
-    
     if (self) {
         _tracks = tracks;
     }
+    
     return self;
 }
 

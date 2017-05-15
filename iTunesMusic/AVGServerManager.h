@@ -6,7 +6,6 @@
 //  Copyright © 2017 A.V. All rights reserved.
 //
 
-@class AVGTrackList;
 @class UIImage;
 
 @protocol AVGServerManager <NSObject>

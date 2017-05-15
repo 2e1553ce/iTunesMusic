@@ -34,7 +34,7 @@ static const NSInteger tracksLimit = 50;
     return self;
 }
 
-#pragma mark - AVGServerManager protocol methods
+#pragma mark - AVGServerManager protocol
 
 - (void)getTracksByArtist:(NSString *)name
                withCompletionHandler:(void(^)(NSArray *trackList, NSError *error))completion {
@@ -53,7 +53,7 @@ static const NSInteger tracksLimit = 50;
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.maximumFractionDigits = 2;
-    formatter.locale = [NSLocale currentLocale];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     
     [[self.iTunesSession dataTaskWithRequest:request
                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -104,5 +104,6 @@ static const NSInteger tracksLimit = 50;
         }] resume];
     }
 }
-
+#warning service for cache
+#warning do i need to check data from service? nill etc
 @end

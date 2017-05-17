@@ -100,15 +100,6 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
-    // Cancel all tasks
-    if (self.trackManager) {
-        [((AVGTrackService *)self.trackManager).iTunesSession getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
-            for(NSURLSessionTask *task in tasks) {
-                [task cancel];
-            }
-        }];
-    }
-    
     NSString *artistName = searchBar.text;
     self.trackManager = [AVGTrackService new];
     

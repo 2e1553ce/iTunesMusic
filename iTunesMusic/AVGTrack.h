@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+
 @class UIImage;
 
 @interface AVGTrack : NSObject

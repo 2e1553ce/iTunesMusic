@@ -14,6 +14,7 @@
 - (void)getTracksByArtist:(NSString *)name
     withCompletionHandler:(void(^)(NSArray *trackList, NSError *error))completion;
 
+@optional
 - (void)downloadImageFrom:(NSURL *)url
     withCompletionHandler:(void(^)(UIImage *image, NSError *error))completion;
 

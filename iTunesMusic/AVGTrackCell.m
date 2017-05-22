@@ -7,8 +7,8 @@
 //
 
 #import "AVGTrackCell.h"
-#import "AVGTrackThumbImageView.h"
 #import "AVGTrack.h"
+#import "AVGTrackThumbImageView.h"
 #import <Masonry.h>
 
 NSString *const AVGTrackCellIdentifier = @"AVGTrackCellIdentifier";

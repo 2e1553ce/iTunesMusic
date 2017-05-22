@@ -6,7 +6,6 @@
 //  Copyright © 2017 A.V. All rights reserved.
 //
 
-@import Foundation;
 #import "AVGServerManager.h"
 
 @interface AVGTrackService : NSObject <AVGServerManager>

@@ -19,6 +19,7 @@
 		198B8EB71EBF83A80085351E /* AVGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EB61EBF83A80085351E /* AVGTrackCell.m */; };
 		198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC21EC0CFD80085351E /* AVGTrackService.m */; };
 		198B8EC91EC0D0770085351E /* AVGTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 198B8EC81EC0D0770085351E /* AVGTrack.m */; };
+		19C016DF1ED30080000A18DF /* AVGCacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C016DE1ED30080000A18DF /* AVGCacheService.m */; };
 		BB3637E15330697FD378361F /* libPods-iTunesMusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		198B8EC21EC0CFD80085351E /* AVGTrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrackService.m; sourceTree = "<group>"; };
 		198B8EC71EC0D0770085351E /* AVGTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGTrack.h; sourceTree = "<group>"; };
 		198B8EC81EC0D0770085351E /* AVGTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGTrack.m; sourceTree = "<group>"; };
+		19C016DD1ED30080000A18DF /* AVGCacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGCacheService.h; sourceTree = "<group>"; };
+		19C016DE1ED30080000A18DF /* AVGCacheService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGCacheService.m; sourceTree = "<group>"; };
 		6BD5CDE250A1E606B7A12C7A /* Pods-iTunesMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.release.xcconfig"; sourceTree = "<group>"; };
 		F4BE4535B1650C26B597B9B9 /* Pods-iTunesMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesMusic/Pods-iTunesMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F758AAF7666E4C0891BD81 /* libPods-iTunesMusic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTunesMusic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +223,7 @@
 			children = (
 				198B8EB91EBF84090085351E /* AVGServerManager.h */,
 				198B8EBC1EBF84A90085351E /* iTunesMusic */,
+				19C016DC1ED30049000A18DF /* Cache */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -249,6 +253,15 @@
 				198B8EB21EBF80AA0085351E /* AVGTrackTableViewController.m */,
 			);
 			name = Table;
+			sourceTree = "<group>";
+		};
+		19C016DC1ED30049000A18DF /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				19C016DD1ED30080000A18DF /* AVGCacheService.h */,
+				19C016DE1ED30080000A18DF /* AVGCacheService.m */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		1C768B9339B5B0B9ED8EC582 /* Pods */ = {
@@ -462,6 +475,7 @@
 				198B8EC31EC0CFD80085351E /* AVGTrackService.m in Sources */,
 				1933AFA61EC5E10A008001E4 /* NSString+AVGTimeFromMilliseconds.m in Sources */,
 				198B8E7D1EBF7FD70085351E /* main.m in Sources */,
+				19C016DF1ED30080000A18DF /* AVGCacheService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,10 @@
 
 @import UIKit;
 
-extern NSString *const AVGTrackCellIdentifier;
-
 @class AVGTrack;
 @class AVGTrackThumbImageView;
+
+extern NSString *const AVGTrackCellIdentifier;
 
 @interface AVGTrackCell : UITableViewCell
 

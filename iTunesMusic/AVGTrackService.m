@@ -7,7 +7,9 @@
 //
 
 @import UIKit;
+
 #import "AVGTrackService.h"
+#import "AVGCacheService.h"
 #import "AVGTrack.h"
 #import "NSString+AVGTimeFromMilliseconds.h"
 
@@ -17,7 +19,7 @@ static const NSInteger tracksLimit = 50;
 
 @property (nonatomic, strong) NSURLSession *iTunesSession;
 @property (nonatomic, strong) NSURLSessionDataTask *iTunesSessionDataTask;
-@property (nonatomic, strong) NSCache *imageCache;
+@property (nonatomic, strong) AVGCacheService *cacheService;
 
 @end
 
@@ -30,7 +32,7 @@ static const NSInteger tracksLimit = 50;
     if (self) {
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.iTunesSession = [NSURLSession sessionWithConfiguration:sessionConfig];
-        self.imageCache = [NSCache new];
+        self.cacheService = [AVGCacheService new];
     }
     
     return self;
@@ -63,26 +65,33 @@ static const NSInteger tracksLimit = 50;
     self.iTunesSessionDataTask = [self.iTunesSession dataTaskWithRequest:request
                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                          
-                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-                         dict = dict[@"results"];
-                         
-                         NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[dict count]];
-                         for (id object in dict) {
-                             // Track price
-                             NSString *priceStr = [formatter stringFromNumber:object[@"trackPrice"]];
+                         if (data) {
+                             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                             dict = dict[@"results"];
                              
-                             AVGTrack *track = [[AVGTrack alloc] initWithArtistName:object[@"artistName"]
-                                                                          trackName:object[@"trackName"]
-                                                                       thumbURLPath:object[@"artworkUrl100"]
-                                                                              price:[NSDecimalNumber decimalNumberWithString:priceStr]
-                                                                               time:[NSString getTimeFromMilliseconds:[object[@"trackTimeMillis"] integerValue]]];
+                             NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[dict count]];
+                             for (id object in dict) {
+                                 // Track price
+                                 NSString *priceStr = [formatter stringFromNumber:object[@"trackPrice"]];
+                                 
+                                 AVGTrack *track = [[AVGTrack alloc] initWithArtistName:object[@"artistName"]
+                                                                              trackName:object[@"trackName"]
+                                                                           thumbURLPath:object[@"artworkUrl100"]
+                                                                                  price:[NSDecimalNumber decimalNumberWithString:priceStr]
+                                                                                   time:[NSString getTimeFromMilliseconds:[object[@"trackTimeMillis"] integerValue]]];
+                                 
+                                 [tracks addObject:track];
+                             }
                              
-                             [tracks addObject:track];
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 completion(tracks, error);
+                             });
+                         } else {
+                             
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 completion(nil, error);
+                             });
                          }
-                         
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             completion(tracks, error);
-                         });
     }];
     [self.iTunesSessionDataTask resume];
 }
@@ -91,7 +100,7 @@ static const NSInteger tracksLimit = 50;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     
-    UIImage *cachedImage = [self.imageCache objectForKey:request];
+    UIImage *cachedImage = [self.cacheService objectForKey:request];
     if (cachedImage) {
         completion(cachedImage, nil);
     } else {
@@ -100,7 +109,7 @@ static const NSInteger tracksLimit = 50;
             UIImage *downloadedImage = [UIImage imageWithData:
                                         [NSData dataWithContentsOfURL:location]];
             // Caching image
-            [self.imageCache setObject:downloadedImage forKey:request];
+            [self.cacheService setObject:downloadedImage forKey:request];
             
             if (downloadedImage) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -110,6 +119,4 @@ static const NSInteger tracksLimit = 50;
         }] resume];
     }
 }
-#warning service for cache
-#warning do i need to check data from service? nill etc
 @end

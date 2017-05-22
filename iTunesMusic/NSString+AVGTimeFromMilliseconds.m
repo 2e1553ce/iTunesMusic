@@ -11,6 +11,7 @@
 @implementation NSString (AVGTimeFromMilliseconds)
 
 + (NSString *)getTimeFromMilliseconds:(NSInteger)interval {
+    
     unsigned long milliseconds = interval;
     unsigned long seconds = milliseconds / 1000;
     milliseconds %= 1000;

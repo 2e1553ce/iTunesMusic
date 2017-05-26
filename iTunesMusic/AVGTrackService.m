@@ -100,7 +100,7 @@ static const NSInteger tracksLimit = 50;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     
-    UIImage *cachedImage = [self.cacheService objectForKey:request];
+    UIImage *cachedImage = [self.cacheService objectForKey:url];
     if (cachedImage) {
         completion(cachedImage, nil);
     } else {
@@ -109,7 +109,7 @@ static const NSInteger tracksLimit = 50;
             UIImage *downloadedImage = [UIImage imageWithData:
                                         [NSData dataWithContentsOfURL:location]];
             // Caching image
-            [self.cacheService setObject:downloadedImage forKey:request];
+            [self.cacheService setObject:downloadedImage forKey:url];
             
             if (downloadedImage) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -119,4 +119,5 @@ static const NSInteger tracksLimit = 50;
         }] resume];
     }
 }
+
 @end

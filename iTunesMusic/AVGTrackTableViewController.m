@@ -64,7 +64,6 @@
     if (cell == nil) {
         cell = [[AVGTrackCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AVGTrackCellIdentifier];
     }
-    
     AVGTrack *track = [self.tracks objectAtIndexedSubscript:indexPath.row];
     [cell addTrack:track];
     
@@ -113,10 +112,10 @@
             }
             
             NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
-            [self.tableView beginUpdates];
-            [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView endUpdates];
-            [self.searchBar endEditing:YES];
+            [strongSelf.tableView beginUpdates];
+            [strongSelf.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+            [strongSelf.tableView endUpdates];
+            [strongSelf.searchBar endEditing:YES];
         } else {
             // No tracks! - show uiview animationduration?
             [self.searchBar endEditing:YES];

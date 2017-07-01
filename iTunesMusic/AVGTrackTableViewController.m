@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) UISearchBar *searchBar;
 
-@property (nonatomic, strong) NSArray *tracks;
+@property (nonatomic, copy) NSArray *tracks;
 @property (nonatomic, strong) id <AVGServerManager> trackManager;
 
 @end
